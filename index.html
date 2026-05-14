@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pixel RPG Starter</title>
+  <link rel="stylesheet" href="./styles/style.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Codex starter repo</p>
+        <h1>Pixel RPG Starter</h1>
+        <p class="lede">
+          A small browser RPG scaffold with movement, NPC dialogue, a quest, inventory, and a pause menu.
+        </p>
+      </div>
+      <div class="topbar-note">
+        Open locally with no build step
+      </div>
+    </header>
+
+    <main class="game-frame">
+      <canvas id="game" width="320" height="240" aria-label="Pixel RPG game canvas"></canvas>
+
+      <div id="hud" class="hud">
+        <div id="prompt" class="prompt hidden"></div>
+        <div id="toast" class="toast hidden"></div>
+      </div>
+
+      <section id="dialogueBox" class="dialogue hidden" aria-live="polite"></section>
+
+      <section id="pauseMenu" class="pause hidden" aria-hidden="true">
+        <div class="pause-panel">
+          <div class="pause-header">
+            <div>
+              <p class="eyebrow">Paused</p>
+              <h2>Adventure Menu</h2>
+            </div>
+            <button id="resumeButton" type="button">Resume</button>
+          </div>
+
+          <div class="pause-grid">
+            <div class="panel">
+              <h3>Player Name</h3>
+              <p id="menuPlayerName" class="panel-value"></p>
+            </div>
+
+            <div class="panel">
+              <h3>Inventory</h3>
+              <ul id="inventoryList" class="panel-list"></ul>
+            </div>
+
+            <div class="panel">
+              <h3>Active Quest</h3>
+              <p id="questSummary" class="panel-value"></p>
+              <p id="questDetails" class="panel-note"></p>
+            </div>
+
+            <div class="panel">
+              <h3>Controls</h3>
+              <ul class="panel-list">
+                <li>Move with WASD or arrow keys</li>
+                <li>Press E to talk or interact</li>
+                <li>Press Escape to open or close the menu</li>
+                <li>Press E again to continue dialogue</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      Beginner-friendly files, placeholder pixel art, and room to add maps, NPCs, items, quests, and dialogue later.
+    </footer>
+  </div>
+
+  <script src="./src/data.js"></script>
+  <script src="./src/collision.js"></script>
+  <script src="./src/input.js"></script>
+  <script src="./src/camera.js"></script>
+  <script src="./src/inventory.js"></script>
+  <script src="./src/dialogue.js"></script>
+  <script src="./src/quest.js"></script>
+  <script src="./src/npc.js"></script>
+  <script src="./src/map.js"></script>
+  <script src="./src/player.js"></script>
+  <script src="./src/game.js"></script>
+  <script src="./src/main.js"></script>
+</body>
+</html>
