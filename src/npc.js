@@ -4,17 +4,17 @@
   class NPC {
     constructor(definition) {
       Object.assign(this, definition);
-      this.width = definition.width || 12;
-      this.height = definition.height || 16;
+      this.width = definition.width || 18;
+      this.height = definition.height || 24;
       this.bobSeed = Math.random() * Math.PI * 2;
     }
 
     getBounds() {
       return {
         x: this.x,
-        y: this.y + 2,
+        y: this.y + 5,
         width: this.width,
-        height: this.height - 2
+        height: this.height - 5
       };
     }
 
@@ -31,40 +31,46 @@
 
       // Shadow.
       ctx.fillStyle = "rgba(0, 0, 0, 0.18)";
-      ctx.fillRect(screenX + 1, screenY + 15, 10, 3);
+      ctx.fillRect(screenX + 2, screenY + 19, 14, 4);
+
+      // Outline.
+      ctx.fillStyle = "#1c2540";
+      ctx.fillRect(screenX + 4, screenY + 3, 10, 2);
+      ctx.fillRect(screenX + 3, screenY + 5, 12, 13);
+      ctx.fillRect(screenX + 5, screenY + 18, 8, 3);
 
       // Hair.
       ctx.fillStyle = this.hair;
-      ctx.fillRect(screenX + 3, screenY + 1, 6, 4);
-      ctx.fillRect(screenX + 2, screenY + 3, 8, 2);
+      ctx.fillRect(screenX + 5, screenY + 3, 8, 4);
+      ctx.fillRect(screenX + 4, screenY + 5, 10, 2);
+      ctx.fillStyle = "#8a5a40";
+      ctx.fillRect(screenX + 5, screenY + 3, 4, 2);
 
       // Head.
       ctx.fillStyle = "#f4d2b1";
-      ctx.fillRect(screenX + 3, screenY + 3, 6, 5);
+      ctx.fillRect(screenX + 6, screenY + 6, 6, 6);
+      ctx.fillStyle = "#ffdca8";
+      ctx.fillRect(screenX + 7, screenY + 6, 2, 1);
 
       // Eyes.
       ctx.fillStyle = "#24324d";
-      ctx.fillRect(screenX + 4, screenY + 5, 1, 1);
-      ctx.fillRect(screenX + 7, screenY + 5, 1, 1);
+      ctx.fillRect(screenX + 7, screenY + 8, 1, 1);
+      ctx.fillRect(screenX + 10, screenY + 8, 1, 1);
 
       // Body.
       ctx.fillStyle = this.clothing;
-      ctx.fillRect(screenX + 2, screenY + 8, 8, 6);
-
-      // Hands and legs.
+      ctx.fillRect(screenX + 5, screenY + 12, 8, 6);
       ctx.fillStyle = this.color;
-      ctx.fillRect(screenX + 1, screenY + 9, 1, 4);
-      ctx.fillRect(screenX + 10, screenY + 9, 1, 4);
-      ctx.fillRect(screenX + 3, screenY + 14, 2, 2);
-      ctx.fillRect(screenX + 7, screenY + 14, 2, 2);
+      ctx.fillRect(screenX + 6, screenY + 13, 2, 2);
+      ctx.fillRect(screenX + 10, screenY + 13, 2, 2);
 
       // Tiny name bar.
       ctx.fillStyle = "rgba(12, 19, 33, 0.9)";
-      ctx.fillRect(screenX - 3, screenY - 8, 18, 4);
+      ctx.fillRect(screenX - 2, screenY - 9, 22, 5);
       ctx.fillStyle = "#eaf3ff";
-      ctx.font = "6px sans-serif";
+      ctx.font = "7px sans-serif";
       ctx.textAlign = "center";
-      ctx.fillText(this.name, screenX + 6, screenY - 5);
+      ctx.fillText(this.name, screenX + 9, screenY - 5);
     }
 
     getDialogue(game) {
