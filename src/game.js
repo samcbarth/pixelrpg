@@ -236,30 +236,24 @@
     drawHUD(ctx) {
       const questText = this.quest.summary;
       const statusText = this.menuOpen ? "Paused" : this.dialogue.visible ? "Talking" : "Exploring";
-      const barW = 126;
 
       ctx.fillStyle = "rgba(10, 17, 31, 0.72)";
-      ctx.fillRect(8, 8, 148, 36);
-      ctx.fillRect(8, 48, 148, 24);
+      ctx.fillRect(8, 8, 118, 30);
 
       ctx.fillStyle = "#eef5ff";
-      ctx.font = "bold 10px sans-serif";
+      ctx.font = "bold 9px sans-serif";
       ctx.fillText(this.player.name, 14, 20);
-      ctx.font = "9px sans-serif";
-      ctx.fillStyle = "#d2e0ff";
-      ctx.fillText(statusText, 14, 32);
-
-      ctx.fillStyle = "rgba(255,255,255,0.12)";
-      ctx.fillRect(14, 36, barW, 5);
-      ctx.fillStyle = "#7fd7ff";
-      ctx.fillRect(14, 36, Math.max(4, Math.round(barW * (this.quest.stage === "complete" ? 1 : this.quest.stage === "collected" ? 0.75 : this.quest.stage === "accepted" ? 0.45 : 0.15))), 5);
-
-      ctx.fillStyle = "#eef5ff";
       ctx.font = "8px sans-serif";
-      const questLines = this.wrapText(ctx, `Quest: ${questText}`, 132);
-      questLines.slice(0, 2).forEach((line, index) => {
-        ctx.fillText(line, 14, 58 + index * 9);
-      });
+      ctx.fillStyle = "#d2e0ff";
+      ctx.fillText(statusText, 14, 31);
+
+      if (this.quest.stage !== "inactive") {
+        ctx.fillStyle = "rgba(10, 17, 31, 0.72)";
+        ctx.fillRect(8, 42, 140, 18);
+        ctx.fillStyle = "#7fd7ff";
+        ctx.font = "7px sans-serif";
+        ctx.fillText(`Quest: ${questText}`, 14, 54);
+      }
     }
 
     wrapText(ctx, text, maxWidth) {

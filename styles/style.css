@@ -114,6 +114,7 @@ h1 {
 #game {
   display: block;
   width: min(100%, 960px);
+  aspect-ratio: 4 / 3;
   height: auto;
   margin: 0 auto;
   image-rendering: pixelated;
@@ -132,6 +133,7 @@ h1 {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  max-width: calc(100% - 24px);
   padding: 8px 12px;
   border-radius: 999px;
   background: rgba(7, 12, 21, 0.84);
@@ -158,6 +160,8 @@ h1 {
   left: 16px;
   right: 16px;
   bottom: 14px;
+  max-width: 780px;
+  margin: 0 auto;
   min-height: 74px;
   padding: 14px 16px;
   border-radius: 18px;
@@ -228,7 +232,7 @@ h1 {
 .pause-grid {
   display: grid;
   gap: 12px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
 .panel {
@@ -276,6 +280,13 @@ h1 {
   color: var(--muted);
   font-size: 13px;
   line-height: 1.5;
+}
+
+@media (min-width: 1200px) {
+  .game-frame {
+    max-width: 1024px;
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 900px) {
