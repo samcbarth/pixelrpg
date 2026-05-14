@@ -1,7 +1,7 @@
 (function () {
   const root = (window.PixelRPG = window.PixelRPG || {});
 
-  const TILE_SIZE = 24;
+  const TILE_SIZE = 32;
   const MAP_WIDTH = 30;
   const MAP_HEIGHT = 22;
 
@@ -71,8 +71,8 @@
   root.DATA = {
     title: "Pixel RPG Starter",
     tileSize: TILE_SIZE,
-    canvasWidth: 480,
-    canvasHeight: 360,
+    canvasWidth: 640,
+    canvasHeight: 480,
     mapWidth: MAP_WIDTH,
     mapHeight: MAP_HEIGHT,
     worldWidth: MAP_WIDTH * TILE_SIZE,
@@ -88,8 +88,8 @@
         name: "River Herb",
         x: 23 * TILE_SIZE + 4,
         y: 11 * TILE_SIZE + 4,
-        width: 12,
-        height: 12,
+        width: 16,
+        height: 16,
         questItem: true
       }
     ],
@@ -100,8 +100,8 @@
         role: "quest_giver",
         x: 6 * TILE_SIZE + 2,
         y: 6 * TILE_SIZE + 2,
-        width: 18,
-        height: 24,
+        width: 24,
+        height: 32,
         color: "#ffd166",
         clothing: "#ff8fab",
         hair: "#6b3c2a",
@@ -117,8 +117,8 @@
         role: "villager",
         x: 22 * TILE_SIZE + 2,
         y: 16 * TILE_SIZE + 2,
-        width: 18,
-        height: 24,
+        width: 24,
+        height: 32,
         color: "#81d4ff",
         clothing: "#7c9cff",
         hair: "#6b4b2d",
